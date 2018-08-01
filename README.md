@@ -1,6 +1,6 @@
 # CloudDev
 
-Hello. I'm here is my code example.
+Hello. Here is some example code.
 
 Application - PHP codeigniter code
 src - angular code
