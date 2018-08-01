@@ -1,0 +1,10 @@
+<div style="width: 100%;" class="item" *ngIf="show_alarm">
+
+    <div class="b-circle" [ngClass]="alarm_data.alarm_class">
+        <div class="img-alarm"></div>
+    </div>
+    
+    <div class="message">
+        {{ alarm_data.modbus_key | translate }}
+    </div>
+</div>

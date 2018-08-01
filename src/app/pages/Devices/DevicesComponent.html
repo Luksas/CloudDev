@@ -1,0 +1,48 @@
+<div class='row'>
+    <div class='col-md-3'>
+        <div class="select-row">
+    
+            <div class="large-screen">
+                <div class="select-item" [ngClass]="show_all ? 'active' : ''" (click)="selectDevice('')">
+                    <span class='select-text'>{{ 'ALL' | translate }}</span>
+                </div>
+
+                <div class="select-item" *ngFor="let gateway of gateways" [ngClass]="gateway.active ? 'active' : ''" (click)="selectDevice(gateway.id)">
+                    <span class='select-text'>{{ gateway.name }}</span>
+                </div>
+            </div>
+            
+            <div class="small-screen">
+                <select class="form-control" (change)="selectDevice($event.target.value)">
+                    <option [selected]='show_all' value="">{{ 'ALL' | translate }}</option>
+                    <option *ngFor="let gateway of gateways" [value]="gateway.id" [selected]="gateway.active">{{ gateway.name }}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9" style="position: initial;">
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>{{ 'NAME' | translate }}</th>
+                    <th>{{ 'VENT_CONTROL' | translate }}</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr style="background-color:rgb(0,0,0); opacity:0.6;" *ngIf="show_loader">
+                    <td>{{ 'LOADING' | translate }}</td>
+                </tr>
+                
+                <tr *ngFor="let ahu of air_handling_units">
+                    <td>{{ ahu.ahu_name }}</td>
+                    <td>
+                        <input type="button" class="btn btn-primary" style='width: 150px' (click)="goToVentilationControl(ahu)" value="{{ 'VENT_CONTROL' | translate }}" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

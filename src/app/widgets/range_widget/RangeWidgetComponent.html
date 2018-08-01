@@ -1,0 +1,22 @@
+<div class="block205px">
+    <label *ngIf="caption != ''" class="caption">{{ caption | translate }}</label>
+    <div class="b-circle float-left-block" (click)="decrement()">
+        <div style="margin: 0 auto; margin-top: 15px;" class="img-minus"></div>
+    </div>
+    
+    
+    
+    <input 
+        OnlyNumber="true"
+        class="clean font32 baseline no-bg middle-input" 
+        type="text"
+        value="value"
+        [(ngModel)]="value" 
+        (ngModelChange)="update(value, true)"
+    />
+    
+    <div class="b-circle float-left-block" (click)="increment()" >
+        <div style="margin: 0 auto; margin-top: 15px;" class="img-plus"></div>
+    </div>
+    <label *ngIf="unit != ''" class="type">{{ unit | translate }}</label>
+</div>

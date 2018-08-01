@@ -1,0 +1,13 @@
+<div class="block205px">
+    
+    <div style='text-align: center;' *ngIf="text != ''">
+        {{ text | translate }}
+    </div>
+    
+    <div class='my-center'>
+        <div class="b-circle" [ngClass]="active_class" (click)="trigger()">
+            <div class="center-img {{ image }}" ></div>
+        </div>
+    </div>
+    
+</div>

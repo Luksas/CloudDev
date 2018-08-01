@@ -1,0 +1,52 @@
+<div class="mcb-container">
+
+    <mcb-header></mcb-header>
+
+    <table class="mcb-page">
+        <tr *ngIf="control_by_fans">
+            <td colspan="4" class="bottom" style="text-align: center;">
+                <range-widget *ngIf="fans_mode == 3"  class="inline-block" modbus_key='HR_2' min="160" max="300" caption="TEMPERATURE" step="0.5" coef="10"></range-widget>
+                <range-widget *ngIf="fans_mode == 2" class="inline-block" modbus_key='HR_4' min="160" max="300" caption="TEMPERATURE" step="0.5" coef="10"></range-widget>
+                <range-widget *ngIf="fans_mode == 1" class="inline-block" modbus_key='HR_6' min="160" max="300" caption="TEMPERATURE" step="0.5" coef="10"></range-widget>
+            </td>
+        </tr>
+
+        <tr *ngIf="control_by_fans">
+            <td class="bottom" style="padding-bottom: 15px; text-align: center;">
+                <shared-register-widget class="inline-block" modbus_key='HR_1' image='img-standby' active_value="0"></shared-register-widget>
+            </td>
+            
+            <td class="bottom" style="padding-bottom: 15px; text-align: center; ">
+                <shared-register-widget class="inline-block" modbus_key='HR_1' image='img-building_protection' active_value="1"></shared-register-widget>
+            </td>
+            
+            <td class="bottom" style="padding-bottom: 15px; text-align: center;">
+                <shared-register-widget class="inline-block" modbus_key='HR_1' image='img-economy' active_value="2"></shared-register-widget>
+            </td>
+            
+            <td class="bottom" style="padding-bottom: 15px; text-align: center;">
+                <shared-register-widget class="inline-block" modbus_key='HR_1' image='img-comfort' active_value="3"></shared-register-widget>
+            </td>
+        </tr>
+
+        <tr *ngIf="show_percentage_setpoint && control_by_percentage">
+            <td class="bottom" style="text-align: center;">
+                <div class="inline-block">
+                    <range-widget modbus_key='HR_6' min="160" max="300" caption="SET_POINT" step="0.5" coef="10"></range-widget>
+                </div>
+            </td>    
+        </tr>
+        
+        <tr *ngIf="control_by_percentage">
+            <td class="bottom" style="text-align: center;">
+                <div class="inline-block">
+                    <range-widget step="1" min="0" max="100" caption="FAN_SPEED" modbus_key='HR_3'></range-widget>
+                </div>
+            </td>    
+        </tr>
+    </table>
+
+
+    <mcbhomemenu-widget [show_fans]="false"></mcbhomemenu-widget>
+</div>
+

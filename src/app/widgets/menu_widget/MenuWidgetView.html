@@ -1,0 +1,119 @@
+<nav class="navbar navbar-inverse">
+    <div class="navbar-header">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+
+    <div class="collapse navbar-collapse js-navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li *ngFor="let item of menu" class="{{ item.active }}"> 
+                <a *ngIf="!item.hasChildren()" href="{{ item.href }}">
+                    {{ item.label | translate }}
+                </a>                
+
+                <a *ngIf="item.hasChildren()" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                {{ item.label | translate }}
+                <span class="caret"></span>
+                </a>
+
+                <ul *ngIf="item.hasChildren()" class="dropdown-menu forAnimate" role="menu">
+                    <li *ngFor="let child of item.children">
+                        <a href="{{ child.href }}">{{ child.label | translate }}</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+
+        <ul class="nav navbar-nav navbar-right">
+            <li *ngFor="let item of profile" class="{{ item.active }}"> 
+                <a *ngIf="!item.hasChildren()" href="{{ item.href }}">
+                    {{ item.label | translate }}
+                </a>                
+
+                <a  *ngIf="item.hasChildren()" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                {{ item.label | translate }}
+                <span class="caret"></span>
+                </a>
+
+                <ul  *ngIf="item.hasChildren()" class="dropdown-menu forAnimate" role="menu">
+                    <li *ngFor="let child of item.children">
+                        <a href="{{ child.href }}">{{ child.label | translate }}</a>
+                    </li>
+                </ul>
+            </li>
+            
+<!--            <li>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    {{'CHOOSE_LANGUAGE' | translate}}
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu forAnimate" role="menu">
+                    <li>
+                        <a (click)="changeLanguage('en')">{{'ENGLISH' | translate}}</a>
+                        <a (click)="changeLanguage('lt')">{{'LITHUANIAN' | translate}}</a>
+                        <a (click)="changeLanguage('ru')">{{'RUSSIAN' | translate}}</a>
+                    </li>
+                </ul>
+            </li>-->
+            
+        </ul>
+    </div>
+</nav>
+
+
+
+
+
+<!--<nav class="navbar navbar-inverse sidebar" role="navigation">
+    <div class="container-fluid">
+        
+         Brand and toggle get grouped for better mobile display 
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+            <div style='height: 50px; padding: 17px;'>
+                <div style='float: left; cursor: pointer;' class="img-en" (click)="changeLanguage('en')" ></div>
+                <div style='float: left; cursor: pointer; margin-left: 15px;' class="img-lt" (click)="changeLanguage('lt')" ></div>
+            </div>
+            
+            <a class="navbar-brand" href="#">Brand</a>
+        </div>
+        
+         Collect the nav links, forms, and other content for toggling *ngIf="item.active != 'no-access'"  
+        <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                
+                <li *ngFor="let item of menu" class="{{ item.active }}"> 
+                    <a *ngIf="!item.hasChildren()" href="{{ item.href }}">
+                        {{ item.label | translate }}
+                        <span style="font-size:16px;" class="pull-right hidden-xs showopacity {{ item.icon_class }}"></span>
+                    </a>                
+
+                    <a  *ngIf="item.hasChildren()" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    {{ item.label | translate }}
+                    <span class="caret"></span>
+                    <span style="font-size:16px;" class="pull-right hidden-xs showopacity {{ item.icon_class }}"></span>
+                    </a>
+
+                    <ul  *ngIf="item.hasChildren()" class="dropdown-menu forAnimate" role="menu">
+                        <li *ngFor="let child of item.children">
+                            <a href="{{ child.href }}">{{ child.label | translate }}</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+-->

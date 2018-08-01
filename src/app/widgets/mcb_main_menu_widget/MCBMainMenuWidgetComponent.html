@@ -1,0 +1,11 @@
+<div style="cursor: pointer;" class="item" *ngFor="let item of menu_items" (click)="itemClicked(item)">
+     
+    <div>
+        <div class="{{ item.image }} img"></div>
+    </div>
+    
+    <div class="caption">
+        {{ item.text | translate }}
+    </div>
+     
+</div>

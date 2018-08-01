@@ -1,0 +1,74 @@
+<div class="row black" >
+    <div class="col-md-offset-3 col-md-6">
+        <div class="panel black border-white">
+
+            <div class="panel-heading">
+                {{ 'ACCOUNT_SETTINGS' | translate }}
+            </div>
+
+            <div class="panel-body">
+                <div *ngIf="show_error" class="form-group">
+                    <div class="row">
+                        <div class="col-md-12" style='text-align: center;'>
+                            {{ 'SAVE_ERROR' | translate }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                            {{ 'USERNAME' | translate }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input style='width: 100%' class='form-control' disabled type="text" value="{{ account.username }}" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                            {{ 'EMAIL' | translate }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input style='width: 100%' class='form-control' type="text" [(ngModel)]="account.email" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                            {{ 'LANGUAGE' | translate }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <select class="form-control" (change)=changeLanguage($event.target.value) id="language">
+                                <option [selected]="active_language == 'en'" value="en">{{ 'ENGLISH' | translate }}</option>
+                                <option [selected]="active_language == 'lt'" value="lt">{{ 'LITHUANIAN' | translate }}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-6">
+                        <input class="btn btn-block btn-primary" type="button" value="{{ 'SAVE' | translate }}" (click)="save()" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+

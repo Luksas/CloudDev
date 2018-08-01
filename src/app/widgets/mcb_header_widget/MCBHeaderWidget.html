@@ -1,0 +1,51 @@
+<div class="header">
+    <div>
+        <div *ngIf="!in_first" style="margin-right: 6px;" (click)="back()" class="img-back left pointer"></div>
+        <div *ngIf="in_first" style="margin-right: 6px; margin-top: -3px;" (click)="goTo('mcbmenu')" class="img-menu left pointer"></div>
+
+        <span class="left" *ngIf="path !== undefined">
+            <span class="left pointer" *ngFor="let item of path; let i = index" (click)="goTo(item.href)">
+                  {{ item.label | translate }} 
+
+                  <span style="margin-left: 2px; margin-right: 3px;" *ngIf="i != path.length - 1">»</span>
+            </span>
+        </span>
+    </div>
+</div>
+
+<!--<ul class="sbar">
+    <li data-ng-show="data[2][200]"><div class="sprite status0"></div></li>
+    <li data-ng-show="data[2][201]"><div class="sprite status1"></div></li>
+    
+    <li data-ng-show="data[2][202]"><div class="sprite status2"></div></li>
+    <li data-ng-show="data[2][203]"><div class="sprite status3"></div></li>
+    
+
+DI_REMOTE_MODE_SWITCH                   200	DI1-Remote mode switch
+DI_REMOTE_CUSTOM_FANS_SPEED_SWITCH	201	DI2-Remote custom fans speed switch
+DI_WORKING_INDICATION_OUTPUT            202	TDO1-Working indication output
+DI_ALARM_INDICATION_OUTPUT              203	TDO2-Alarm indication output
+DI_SLOWING_DOWN_FANS_BY_TEMPERATURE	204	Slowing down fans by temperature
+DI_REDUCING_CO_LEVEL                    205	Reducing CO2 level 
+DI_HYDRONIC_PUMP_EXERCISE               206	Hydronic pump exercise
+DI_HEATING_SEASON                       207	Winter
+DI_STANDBY_MODE_BLOCKING                208	Standby mode blocking
+DI_NIGHT_COOLING_FUNCTION               209	Night cooling function
+DI_SLOWING_DOWN_FANS                    210	Slowing down fans
+DI_SERVICE_STOP_FUNCTION                211	Service stop function
+DI_SERVICE_HOLIDAYS                     212	Holidays indication
+DI_FULL_RECIRCULATION                   213	Full recirculation function
+
+    
+    <li data-ng-show="data[2][204]"><div class="sprite status4"></div></li>
+    <li data-ng-show="data[2][205]"><div class="sprite status5"></div></li>
+    <li data-ng-show="data[2][206]"><div class="sprite status6"></div></li>	
+    <li data-ng-if="data[2][207]"><div class="sprite status7heating"></div></li>
+    <li data-ng-if="!data[2][207]"><div class="sprite status7cooling"></div></li>
+    <li data-ng-show="data[2][208]"><div class="sprite status8"></div></li>
+    <li data-ng-show="data[2][209]"><div class="sprite status9"></div></li>
+    <li data-ng-show="data[2][210]"><div class="sprite status10"></div></li>
+    <li data-ng-show="data[2][211]"><div class="sprite status11"></div></li>
+    <li data-ng-show="data[2][212]"><div class="sprite status12"></div></li>
+	<li data-ng-show="data[2][213]"><div class="sprite recirculation"></div></li>
+</ul>-->

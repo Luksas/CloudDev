@@ -1,0 +1,64 @@
+<div class="row">
+    <div class='col-md-3'>
+        <div class="select-row">
+
+            <div class="large-screen">
+                <div class="select-item" *ngFor="let gateway of gateways; let i = index" [attr.data-index]="i" [ngClass]="gateway.active ? 'active' : ''" (click)="selectDevice(i)">
+                     <span class='select-text'>{{ gateway.name }}</span>
+                </div>
+            </div>
+
+            <div class="small-screen">
+                <select class="form-control" (change)="selectDevice(i)">
+                    <option *ngFor="let gateway of gateways" [value]="gateway.id" [selected]="gateway.active">{{ gateway.name }}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9" style="position: initial;">
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2 *ngIf="active_gateway !== undefined"> 
+                                    <b> 
+                                        <input #selected_element style="width: auto; display: initial;" type="text" class="form-control" disabled="true" [value]="active_gateway.name" /> 
+                                    </b>  
+                                    
+<!--                                    <button (click)="renameGateway()" type="button" class="btn btn-primary">
+                                        <span class="glyphicon glyphicon-edit"></span> {{ 'EDIT' | translate }}
+                                    </button>-->
+
+<!--                                    <button (click)="deleteGateway()" type="button" class="btn btn-primary">
+                                        <span class="glyphicon glyphicon-trash"></span> {{ 'DELETE' | translate }}
+                                    </button>-->
+                                    
+<!--                                    <button (click)="saveRenameValue()" type="button" class="btn btn-primary">
+                                        <span class="glyphicon glyphicon-save"></span> {{ 'SAVE' | translate }}
+                                    </button>-->
+                                    
+                                    <button (click)="addSlave()" type="button" class="btn btn-primary">
+                                        <span class="glyphicon glyphicon-plus"></span> {{ 'ADD_SLAVE' | translate }}
+                                    </button>
+                                </h2>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr>
+                    <td>
+                        <div *ngIf="active_gateway !== undefined">
+                            <ahu-widget (onSuggest)='loadGateways()' *ngFor="let slave of active_gateway.slaves" [ahu]='slave'></ahu-widget>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+.item {
+    background-color: rgba(34, 34, 34, .7);
+    border-color: white;
+    border-radius: 30px;
+    height: 60px;
+    margin-top: 10px;
+    max-width: 800px;
+}
+
+.item .message {
+    height: 60px;
+    line-height: 60px;
+    padding-left: 12px;
+    font-size: 14px;
+    margin-left: 60px;
+}
+
+.img {
+    width: 35px;
+    float: left;
+}
+
+.img-alarm {
+    margin: 0 auto;
+    margin-top: 14px;
+}
+
+.warning {
+    background-color: #ffff009c;
+}
+
+.alarm {
+    background-color: red;
+}
+
+@media (max-width: 500px) {    
+    .item .message {
+        line-height: 15px;
+        padding-left: 12px;
+        font-size: 12px;
+        margin-left: 60px;
+    }
+}
