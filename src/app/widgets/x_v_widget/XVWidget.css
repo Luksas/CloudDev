@@ -1,0 +1,17 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 29, 2017, 10:39:30 AM
+    Author     : Luksa
+*/
+
+.b-active {
+    -webkit-box-shadow: 0 0 0 3px rgba(134, 195, 39, 1);
+    -moz-box-shadow: 0 0 0 3px rgba(134, 195, 39, 1);
+    box-shadow: 0 0 0 3px rgba(134, 195, 39, 1);
+    border-radius: 100%;
+}
+
